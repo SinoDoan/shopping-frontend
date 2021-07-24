@@ -15,7 +15,7 @@
                     <div class="single-products">
                         <div class="productinfo text-center">
                             <img src="{{config('app.base_url') . $productItem->feature_image_path}}" alt="" />
-                            <h2>{{number_format($productItem->price)}}</h2>
+                            <h2>{{number_format($productItem->price)}} VND</h2>
                             <p>{{$productItem->name}}</p>
                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                         </div>
