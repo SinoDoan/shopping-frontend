@@ -6,6 +6,8 @@
     <link href="{{asset('frontend/home/home.css')}}" rel="stylesheet">
 @endsection
 @section('js')
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{{ asset('frontend\js\add-to-cart-alert.js') }}"></script>
 @endsection
 @section('content')
 
@@ -18,6 +20,7 @@
                     <div class="features_items"><!--features_items-->
                         <h2 class="title text-center">Features Items</h2>
                         @foreach($products as $productItem)
+                            <a href="{{route('product.detail', ['id'=>$productItem->id])}}">
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
@@ -25,7 +28,12 @@
                                         <img src="{{config('app.base_url') . $productItem->feature_image_path}}" alt="" />
                                         <h2>{{number_format($productItem->price)}}</h2>
                                         <p>{{$productItem->name}}</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <a href="#"
+                                           data-url = "{{route('addToCart', ['id'=>$productItem->id])}}"
+                                           class="btn btn-default add-to-cart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            Add to cart
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="choose">
@@ -36,6 +44,7 @@
                                 </div>
                             </div>
                         </div>
+                            </a>
                         @endforeach
 
                         {{$products->links()}}

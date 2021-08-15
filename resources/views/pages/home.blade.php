@@ -6,6 +6,8 @@
     <link href="{{asset('frontend/home/home.css')}}" rel="stylesheet">
 @endsection
 @section('js')
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{{ asset('frontend\js\add-to-cart-alert.js') }}"></script>
 @endsection
 @section('content')
 
@@ -36,7 +38,4 @@
             </div>
         </div>
     </section>
-
-
-
 @endsection
